@@ -392,6 +392,7 @@ function loadModule() {
 	var moduleInfoAddress = chain.data;
 	setU64to(moduleInfoAddress, 0x160);
 	
+	//works
 	chain.call("loadModule", LIBSYSMODULE, 0x1860 , moduleNumber, 0, 0, 0);
 	chain.syscall("getModuleInfo", 0, 593, 0x65, moduleInfoAddress);
 	
@@ -421,6 +422,7 @@ function loadNamedModule() {
 	}
 	
 	writeString(chain.data, moduleName);
+	//works
 	chain.syscall("loadModule", 594, chain.data, 0, chain.data + 0x20, 0);
 	chain.write_rax_ToVariable(0);
 	
